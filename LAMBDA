@@ -21,3 +21,46 @@ roles:
   s3 full access
   cloudwatch
   awslambabaic
+
+
+
+import json
+import logging
+
+# Set up logging
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+def lambda_handler(event, context):
+    # Log the statement "I got output"
+    logger.info("I got output")
+
+    # Your function logic here
+    message = "Hello, World!"
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps({'message': message})
+    }
+
+
+
+import boto3
+
+s3 = boto3.client('s3')
+
+def lambda_handler(event, context):
+    # Log the statement "I got output" to an S3 bucket
+    bucket_name = 'your_bucket_name'  # Replace with your bucket name
+    key = 'log.txt'  # Replace with the desired key name
+
+    s3.put_object(Body="I got output", Bucket=bucket_name, Key=key)
+
+    # Your function logic here
+    message = "Hello, World!"
+
+    return {
+        'statusCode': 200,
+        'body': message
+    }
+
