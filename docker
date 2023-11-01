@@ -4,43 +4,62 @@ To install Docker on Ubuntu, you can use the following commands. These commands 
 Update your package database:
 bash
 Copy code
+
 sudo apt update
+
 Install the required packages to allow apt to use a repository over HTTPS:
 bash
 Copy code
+
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+
 Add Docker's official GPG key:
 bash
 Copy code
+
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
 Add the Docker repository to your APT sources:
 For Ubuntu 20.04 (Focal Fossa):
 
 bash
 Copy code
+
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
 For Ubuntu 22.04 (Jammy Jellyfish):
 
 bash
 Copy code
+
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
 Update the package database again to include the Docker repository:
 bash
 Copy code
+
 sudo apt update
+
 Finally, install Docker:
 bash
 Copy code
+
 sudo apt install -y docker-ce docker-ce-cli containerd.io
+
 Start and enable the Docker service:
 bash
 Copy code
+
 sudo systemctl start docker
+
 sudo systemctl enable docker
+
 To verify that Docker is installed and running, you can run the following command:
 bash
 Copy code
+
 sudo docker --version
+
 You should see the version of Docker that was installed on your system.
 
 Please note that you need root or sudo privileges to execute these commands.
