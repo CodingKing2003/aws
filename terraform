@@ -1,0 +1,10 @@
+provider "aws" {
+  access_key = "AKIA55GHXTMOGEJCN3ZC"
+  secret_key = "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"
+  region     = "us-east-1"
+}
+
+resource "aws_instance" "terraform_sfit" {
+  ami           = "ami-01bc990364452ab3e"
+  instance_type = "t2.micro"
+}
